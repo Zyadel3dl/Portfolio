@@ -64,7 +64,7 @@ export default function Hero() {
           <div className="flex flex-wrap gap-4">
 
             <a
-              href="/cv/Zyad_Abdulftah_CV.pdf"
+              href="/CV/Zyad_Abdulftah_CV.pdf"
               target="_blank"
               className="flex items-center gap-2 bg-cyan-500 hover:bg-cyan-600 text-slate-950 font-semibold px-6 py-3 rounded-xl transition"
             >
