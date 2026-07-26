@@ -81,7 +81,7 @@ export default function Contact() {
 
           {/* GitHub */}
           <a
-            href="#"
+            href="https://github.com/Zyadel3dl/Portfolio.git"
             className="bg-slate-950 border border-slate-800 rounded-2xl p-6 hover:border-cyan-400 transition flex items-center gap-5"
           >
             <FaGithub className="text-cyan-400 text-3xl" />
