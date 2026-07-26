@@ -148,12 +148,12 @@ export default function Hero() {
           >
 
             <Image
-              src="/images/profile.png"
-              alt="Zyad Abdulftah"
-              fill
-              className="object-cover"
-              priority
-            />
+  src="/Images/Profile.png"
+  alt="Zyad Abdulftah"
+  fill
+  className="object-cover"
+  priority
+/>
 
           </div>
 
