@@ -81,21 +81,23 @@ export default function Contact() {
 
           {/* GitHub */}
           <a
-            href="https://github.com/Zyadel3dl/Portfolio.git"
-            className="bg-slate-950 border border-slate-800 rounded-2xl p-6 hover:border-cyan-400 transition flex items-center gap-5"
-          >
-            <FaGithub className="text-cyan-400 text-3xl" />
+  href="https://github.com/Zyadel3dl"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="bg-slate-950 border border-slate-800 rounded-2xl p-6 hover:border-cyan-400 transition flex items-center gap-5"
+>
+  <FaGithub className="text-cyan-400 text-3xl" />
 
-            <div>
-              <h3 className="font-bold text-white">
-                GitHub
-              </h3>
+  <div>
+    <h3 className="font-bold text-white">
+      GitHub
+    </h3>
 
-              <p className="text-slate-400">
-                Coming Soon
-              </p>
-            </div>
-          </a>
+    <p className="text-slate-400">
+      github.com/Zyadel3dl
+    </p>
+  </div>
+</a>
 
         </div>
 
