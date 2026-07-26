@@ -131,32 +131,27 @@ export default function Hero() {
         <div className="flex justify-center">
 
           <div
-            className="
-              relative
-              w-96
-              h-96
-              rounded-full
-              overflow-hidden
-              border-4
-              border-cyan-500
-              shadow-[0_0_60px_rgba(34,211,238,0.35)]
-              hover:scale-105
-              hover:shadow-[0_0_90px_rgba(34,211,238,0.55)]
-              transition-all
-              duration-500
-            "
-          >
-
-            <Image
-  src="/Images/Profile.png"
-  alt="Zyad Abdulftah"
-  fill
-  className="object-cover"
-  priority
-/>
-
-          </div>
-
+  className="
+    relative
+    w-96
+    h-96
+    rounded-full
+    overflow-hidden
+    border-4
+    border-cyan-500
+    shadow-[0_0_60px_rgba(34,211,238,0.35)]
+    hover:scale-105
+    hover:shadow-[0_0_90px_rgba(34,211,238,0.55)]
+    transition-all
+    duration-500
+  "
+>
+  <img
+    src="/Images/Profile.png"
+    alt="Zyad Abdulftah"
+    className="w-full h-full object-cover"
+  />
+</div>
         </div>
 
       </div>
