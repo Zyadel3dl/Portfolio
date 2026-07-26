@@ -80,7 +80,7 @@ export default function Contact() {
           </a>
 
           {/* GitHub */}
-          <a
+<a
   href="https://github.com/Zyadel3dl"
   target="_blank"
   rel="noopener noreferrer"
