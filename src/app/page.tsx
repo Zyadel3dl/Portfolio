@@ -13,28 +13,26 @@ import Footer from "./components/Footer";
 
 export default function Home() {
   return (
-    <>
-      <Background />
+  <Background />
 
-      <Navbar />
+  <Navbar />
 
-      <Hero />
+  <Hero />
 
-      <About />
+  <About />
 
-      <Skills />
+  <Skills />
 
-      <Experience />
+  <Experience />
 
-      <Education />
+  <Education />
 
-      <Certificates />
+  <Certificates />
 
-      <Projects />
+  <Projects />
 
-      <Contact />
+  <Contact />
 
-      <Footer />
-    </>
+  <Footer />
   );
 }
