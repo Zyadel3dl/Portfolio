@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { useLanguage } from "./LanguageProvider";
 
-const fullName = "Zyad Abdulftah Ibrahim Ibrahim El Adl";
+const fullName = "Zyad Abdulftah El Adl";
 const links = [
   { id: "home", en: "Home", ar: "الرئيسية" },
   { id: "about", en: "About", ar: "عني" },
