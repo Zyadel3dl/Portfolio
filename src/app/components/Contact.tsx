@@ -72,7 +72,7 @@ export default function Contact() {
 
             <div>
               <h3 className="font-bold text-white">
-                لينكدإن
+                {isArabic ? "لينكدإن" : "LinkedIn"}
               </h3>
 
               <p className="text-slate-400">
@@ -92,7 +92,7 @@ export default function Contact() {
 
   <div>
     <h3 className="font-bold text-white">
-      جيت هب
+      {isArabic ? "جيت هب" : "GitHub"}
     </h3>
 
     <p className="text-slate-400">
