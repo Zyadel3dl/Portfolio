@@ -1,109 +1,56 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { Menu, X } from "lucide-react";
+import { useLanguage } from "./LanguageProvider";
+
+const fullName = "Zyad Abdulftah Ibrahim Ibrahim El Adl";
+const links = [
+  { id: "home", en: "Home", ar: "الرئيسية" },
+  { id: "about", en: "About", ar: "عني" },
+  { id: "skills", en: "Skills", ar: "المهارات" },
+  { id: "experience", en: "Experience", ar: "الخبرة" },
+  { id: "education", en: "Education", ar: "التعليم" },
+  { id: "certificates", en: "Certificates", ar: "الشهادات" },
+  { id: "projects", en: "Projects", ar: "المشاريع" },
+  { id: "contact", en: "Contact", ar: "تواصل" },
+];
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { language, toggleLanguage } = useLanguage();
+  const isArabic = language === "ar";
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-slate-950/95 backdrop-blur-md shadow-lg border-b border-slate-800"
-          : "bg-transparent"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-
-        {/* Logo */}
-
-        <a
-          href="#home"
-          className="text-3xl font-black text-cyan-400 hover:scale-110 transition"
-        >
-          ZA.
-	  Network Engineer
+    <nav className={`fixed left-0 top-0 z-50 w-full transition-all duration-300 ${scrolled ? "border-b border-slate-800 bg-slate-950/90 shadow-lg backdrop-blur-xl" : "bg-transparent"}`}>
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        <a href="#home" className="nav-brand" onClick={() => setMenuOpen(false)}>
+          <span className="nav-mark">ZA</span>
+          <span className="nav-person-name">{fullName}<span className="nav-caption">NETWORK ENGINEERING STUDENT</span></span>
         </a>
-
-        {/* Desktop */}
-
-        <ul className="hidden md:flex items-center gap-8 text-slate-300">
-
-          {[
-            "Home",
-            "About",
-            "Skills",
-            "Experience",
-            "Education",
-            "Certificates",
-            "Projects",
-            "Contact",
-          ].map((item) => (
-            <li key={item}>
-              <a
-                href={`#${item.toLowerCase()}`}
-                className="hover:text-cyan-400 transition"
-              >
-                {item}
-              </a>
-            </li>
-          ))}
-
+        <ul className="hidden items-center gap-5 xl:flex">
+          {links.map((item) => <li key={item.id}><a href={`#${item.id}`} className="text-slate-300 transition hover:text-cyan-400">{isArabic ? item.ar : item.en}</a></li>)}
         </ul>
-
-        {/* Mobile Button */}
-
-        <button
-          className="md:hidden text-white text-2xl"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          {menuOpen ? <FaTimes /> : <FaBars />}
-        </button>
-
+        <div className="flex items-center gap-2">
+          <button type="button" className="language-toggle" onClick={toggleLanguage} aria-label={isArabic ? "Switch to English" : "التبديل إلى العربية"}>{isArabic ? "EN" : "عربي"}</button>
+          <button type="button" className="nav-menu-toggle" aria-label={menuOpen ? (isArabic ? "إغلاق القائمة" : "Close navigation menu") : (isArabic ? "فتح القائمة" : "Open navigation menu")} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>
+            {menuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </div>
-
-      {/* Mobile Menu */}
-
       {menuOpen && (
-        <div className="md:hidden bg-slate-900 border-t border-slate-800">
-
-          <ul className="flex flex-col items-center gap-6 py-6">
-
-            {[
-              "Home",
-              "About",
-              "Skills",
-              "Experience",
-              "Education",
-              "Certificates",
-              "Projects",
-              "Contact",
-            ].map((item) => (
-              <li key={item}>
-                <a
-                  href={`#${item.toLowerCase()}`}
-                  onClick={() => setMenuOpen(false)}
-                  className="text-slate-300 hover:text-cyan-400 transition"
-                >
-                  {item}
-                </a>
-              </li>
-            ))}
-
+        <div className="border-t border-slate-800 bg-slate-950/95 px-6 py-4 backdrop-blur-xl md:hidden">
+          <ul className="mx-auto flex max-w-7xl flex-col gap-1">
+          {links.map((item) => <li key={item.id}><a href={`#${item.id}`} onClick={() => setMenuOpen(false)} className="block rounded-lg px-3 py-2 text-slate-300 transition hover:bg-slate-900 hover:text-cyan-400">{isArabic ? item.ar : item.en}</a></li>)}
           </ul>
-
         </div>
       )}
     </nav>

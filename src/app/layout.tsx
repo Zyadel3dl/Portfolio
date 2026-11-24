@@ -2,51 +2,32 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const fullName = "Zyad Abdulftah Ibrahim Ibrahim El Adl";
+const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
+const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "ZA | Network Engineer",
-
+  title: `${fullName} | Network Engineering Student`,
   description:
-    "Portfolio of Zyad Abdulftah, Electronics & Communications Engineering student passionate about Enterprise Networking, Cisco Technologies, Telecommunications, and Network Security.",
-
+    "Portfolio of Zyad Abdulftah Ibrahim Ibrahim El Adl, fourth-year Electronics and Communications Engineering student at Mansoura University, focused on enterprise networking, infrastructure, and network security.",
   keywords: [
-    "Network Engineer",
+    "Network Engineering Student",
     "Cisco",
     "CCNA",
-    "Networking",
-    "Telecommunications",
+    "Routing and Switching",
     "GNS3",
-    "Packet Tracer",
     "Network Security",
+    "Mansoura University",
     "Portfolio",
   ],
-
-  authors: [{ name: "Zyad Abdulftah" }],
-  creator: "Zyad Abdulftah",
+  authors: [{ name: fullName }],
+  creator: fullName,
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">
-        {children}
-      </body>
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
 }

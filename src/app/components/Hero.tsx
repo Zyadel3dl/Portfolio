@@ -1,159 +1,83 @@
 "use client";
 
 import Image from "next/image";
-import { TypeAnimation } from "react-type-animation";
-import { Download, Mail } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Download, Mail, ChevronDown, FileText } from "lucide-react";
+import { useState } from "react";
+import { useLanguage } from "./LanguageProvider";
+
+const fullName = "Zyad Abdulftah Ibrahim Ibrahim El Adl";
+const highlights = [
+  { label: "Currently studying", value: "Electronics & Communications" },
+  { label: "Building with", value: "Cisco · GNS3 · Packet Tracer" },
+  { label: "Exploring", value: "Routing · Switching · Security" },
+];
 
 export default function Hero() {
+  const [isCvMenuOpen, setIsCvMenuOpen] = useState(false);
+  const { language } = useLanguage();
+  const isArabic = language === "ar";
+
   return (
-    <section
-      id="home"
-      className="min-h-screen bg-slate-950 text-white flex items-center"
-    >
-      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
-
-        {/* Left Side */}
-
-        <div>
-
-          <p className="uppercase tracking-[0.4em] text-cyan-400 font-semibold mb-4">
-            Welcome To My Portfolio
+    <section id="home" className="min-h-screen text-white flex items-center">
+      <div className="hero-layout mx-auto grid items-center gap-14 lg:grid-cols-[1.12fr_.88fr]">
+        <div className="hero-content">
+          <p className="hero-kicker mb-6">{isArabic ? "معرض الأعمال" : "Portfolio"} <span> / </span> {isArabic ? "جامعة المنصورة" : "Mansoura University"}</p>
+          <h1 className="hero-name mb-3">{fullName}</h1>
+          <p className="hero-role mb-7">{isArabic ? "طالب هندسة شبكات واتصالات" : "Network Engineering Student"}</p>
+          <p className="hero-copy mb-9 leading-8">
+            {isArabic ? "طالب بالفرقة الرابعة في هندسة الإلكترونيات والاتصالات، مهتم بشبكات المؤسسات والاتصالات وأمن الشبكات. أطور خبرتي العملية من خلال معامل سيسكو ومشاريع تطبيقية." : "Fourth-year Electronics & Communications Engineering student interested in enterprise networking, telecommunications, and network security. I’m building practical experience through Cisco labs and hands-on projects."}
           </p>
-
-          <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
-            Hi, I'm <br />
-
-            <span className="text-cyan-400">
-              Zyad Abdulftah
-            </span>
-
-          </h1>
-
-          <div className="text-2xl md:text-3xl font-semibold text-slate-300 mb-8 h-12">
-
-            <TypeAnimation
-              sequence={[
-                "ECE Student",
-                2000,
-                "Aspiring Network Engineer",
-                2000,
-                "CCNA Student",
-                2000,
-                "Cisco Networking",
-                2000,
-              ]}
-              wrapper="span"
-              speed={50}
-              repeat={Infinity}
-            />
-
-          </div>
-
-          <p className="text-slate-400 leading-8 max-w-xl mb-10">
-  I'm a fourth-year Electronics & Communications Engineering student at
-  Mansoura University with a strong interest in Enterprise Networking,
-  Telecommunications, and Network Security.
-
-  <br />
-  <br />
-
-  Currently, I'm developing my skills through hands-on Cisco labs using
-  GNS3 to become a professional Network Engineer.
-</p>
-
-          <div className="flex flex-wrap gap-4">
-
-            <a
-              href="/CV/Zyad_Abdulftah_CV.pdf"
-              target="_blank"
-              className="flex items-center gap-2 bg-cyan-500 hover:bg-cyan-600 text-slate-950 font-semibold px-6 py-3 rounded-xl transition"
-            >
-              <Download size={20} />
-              Download CV
+          <div className="hero-actions flex flex-wrap gap-3">
+            <div className="hero-cv-picker relative">
+              <button
+                type="button"
+                className="hero-cv-trigger inline-flex items-center gap-2 rounded-xl px-5 py-3 font-semibold transition"
+                aria-expanded={isCvMenuOpen}
+                aria-haspopup="true"
+                onClick={() => setIsCvMenuOpen((open) => !open)}
+              >
+                <Download size={18} /> {isArabic ? "السيرة الذاتية" : "My CV"} <ChevronDown size={16} />
+              </button>
+              {isCvMenuOpen && (
+                <div className="hero-cv-menu" role="menu">
+                  <a role="menuitem" href="/CVs/My%20CV/Zyad%20ElAdl%20CV.docx.pdf" target="_blank" rel="noreferrer" onClick={() => setIsCvMenuOpen(false)}>
+                    <FileText size={17} /> {isArabic ? "السيرة المهنية" : "Professional CV"} <ArrowUpRight size={14} />
+                  </a>
+                  <a role="menuitem" href="/CVs/My%20Academic%20CV/Academic%20CV.pdf" target="_blank" rel="noreferrer" onClick={() => setIsCvMenuOpen(false)}>
+                    <FileText size={17} /> {isArabic ? "السيرة الأكاديمية" : "Academic CV"} <ArrowUpRight size={14} />
+                  </a>
+                </div>
+              )}
+            </div>
+            <a href="#contact" className="hero-contact-link inline-flex items-center gap-2 rounded-xl border px-5 py-3 font-semibold transition">
+              <Mail size={18} /> {isArabic ? "تواصل معي" : "Contact me"}
             </a>
-
-            <a
-              href="#contact"
-              className="flex items-center gap-2 border border-slate-700 hover:border-cyan-400 hover:text-cyan-400 px-6 py-3 rounded-xl transition"
-            >
-              <Mail size={20} />
-              Contact Me
-            </a>
-
           </div>
-
-          {/* Statistics */}
-
-          <div className="grid grid-cols-3 gap-8 mt-14 max-w-xl">
-
-            <div>
-
-              <h3 className="text-4xl font-bold text-cyan-400">
-                2027
-              </h3>
-
-              <p className="text-slate-400 mt-2 text-sm">
-                Expected Graduation
-              </p>
-
-            </div>
-
-            <div>
-
-              <h3 className="text-4xl font-bold text-cyan-400">
-                NTI
-              </h3>
-
-              <p className="text-slate-400 mt-2 text-sm">
-                Professional Training
-              </p>
-
-            </div>
-
-            <div>
-
-              <h3 className="text-4xl font-bold text-cyan-400">
-                CCNA
-              </h3>
-
-              <p className="text-slate-400 mt-2 text-sm">
-                In Progress
-              </p>
-
-            </div>
-
+          <div className="hero-highlights mt-12 grid gap-3 sm:grid-cols-3">
+            {(isArabic ? [
+              { label: "أدرس حاليًا", value: "هندسة الإلكترونيات والاتصالات" },
+              { label: "أعمل باستخدام", value: "Cisco · GNS3 · Packet Tracer" },
+              { label: "أتعلم", value: "التوجيه · التحويل · الأمن" },
+            ] : highlights).map((item, index) => (
+              <div className="highlight-card" key={item.label}>
+                <span className="highlight-index">0{index + 1}</span>
+                <span className="highlight-label">{item.label}</span>
+                <span className="highlight-value">{item.value}</span>
+              </div>
+            ))}
           </div>
-
+          <a className="scroll-cue" href="#about"><span>{isArabic ? "تصفح أعمالي" : "Explore portfolio"}</span><ArrowDown size={15} /></a>
         </div>
-
-        {/* Right Side */}
-
-        <div className="flex justify-center">
-
-          <div
-  className="
-    relative
-    w-96
-    h-96
-    rounded-full
-    overflow-hidden
-    border-4
-    border-cyan-500
-    shadow-[0_0_60px_rgba(34,211,238,0.35)]
-    hover:scale-105
-    hover:shadow-[0_0_90px_rgba(34,211,238,0.55)]
-    transition-all
-    duration-500
-  "
->
-  <img
-    src="/Images/Profile.png"
-    alt="Zyad Abdulftah"
-    className="w-full h-full object-cover"
-  />
-</div>
+        <div className="hero-visual">
+          <div className="visual-orbit orbit-one" />
+          <div className="visual-orbit orbit-two" />
+          <div className="portrait-wrap">
+            <Image src="/Images/Profile.png" alt={fullName} width={800} height={800} priority className="h-full w-full object-cover" />
+          </div>
+          <div className="portrait-tag"><span className="status-dot" /> {isArabic ? "منفتح على التعلم والتعاون" : "Open to learning & collaboration"}</div>
+          <div className="visual-node node-a" /><div className="visual-node node-b" /><div className="visual-node node-c" />
+          <div className="visual-connection connection-a" /><div className="visual-connection connection-b" />
         </div>
-
       </div>
     </section>
   );

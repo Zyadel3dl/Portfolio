@@ -10,10 +10,11 @@ import Certificates from "./components/Certificates";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import LanguageProvider from "./components/LanguageProvider";
 
 export default function Home() {
   return (
-    <>
+    <LanguageProvider>
   <Background />
 
   <Navbar />
@@ -35,6 +36,6 @@ export default function Home() {
   <Contact />
 
   <Footer />
-</>
+    </LanguageProvider>
   );
 }

@@ -1,63 +1,33 @@
 import Reveal from "./Reveal";
+import { useLanguage } from "./LanguageProvider";
+
 export default function Experience() {
+  const { language } = useLanguage();
+  const isArabic = language === "ar";
   return (
     <Reveal>
-    <section
-      id="experience"
-      className="bg-slate-900 py-24 px-6"
-    >
-      <div className="max-w-6xl mx-auto">
+      <section id="experience" className="bg-slate-900 px-6 py-24">
+        <div className="mx-auto max-w-5xl">
+          <p className="mb-3 text-center font-mono text-xs uppercase tracking-[.2em] text-cyan-400">{isArabic ? "تدريب مكتمل" : "Completed training"}</p>
+          <h2 className="mb-4 text-center text-4xl font-bold text-white md:text-5xl">{isArabic ? "شبكات المحمول في المعهد القومي للاتصالات" : "Mobile networks at NTI"}</h2>
+          <p className="mb-14 text-center text-slate-400">{isArabic ? "برنامج تدريبي متخصص لمدة 60 ساعة في شبكات الاتصالات المحمولة." : "A focused 60-hour training program in mobile communication networks."}</p>
 
-        <h2 className="text-4xl font-bold text-center text-cyan-400 mb-4">
-          Experience
-        </h2>
-
-        <p className="text-center text-slate-400 mb-14">
-          My practical training and hands-on experience.
-        </p>
-
-        <div className="bg-slate-950 border border-slate-800 rounded-2xl p-8 hover:border-cyan-400 transition">
-
-          <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-6">
-
-            <div>
-              <h3 className="text-2xl font-bold text-white">
-                Mobile Communication Networks Trainee
-              </h3>
-
-              <p className="text-cyan-400 mt-2">
-                National Telecommunication Institute (NTI)
-              </p>
+          <article className="mx-auto w-full max-w-3xl rounded-2xl border border-slate-800 bg-slate-950 p-7 md:p-9">
+            <div className="flex flex-col gap-3 border-b border-slate-800 pb-6 md:flex-row md:items-start md:justify-between">
+              <div>
+                <h3 className="text-xl font-bold text-white">{isArabic ? "شبكات الاتصالات المحمولة" : "Mobile Communication Networks"}</h3>
+                <p className="mt-2 text-cyan-400">{isArabic ? "المعهد القومي للاتصالات" : "National Telecommunication Institute (NTI)"}</p>
+              </div>
+              <span className="text-sm text-slate-400">Jul-Sep 2025</span>
             </div>
-
-            <span className="text-slate-400 mt-4 md:mt-0">
-              Jul 2025 – Sep 2025
-            </span>
-
-          </div>
-
-          <ul className="space-y-4 text-slate-400 list-disc pl-6">
-
-            <li>
-              Studied GSM architecture and mobile communication systems.
-            </li>
-
-            <li>
-              Learned cellular network concepts including BTS, BSC, MSC,
-              HLR, VLR, and Core Network.
-            </li>
-
-            <li>
-              Improved understanding of modern mobile network technologies
-              and telecommunications infrastructure.
-            </li>
-
-          </ul>
-
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <span className="rounded-full border border-slate-700 px-4 py-2 text-sm text-slate-300">{isArabic ? "60 ساعة تدريبية" : "60 training hours"}</span>
+              <span className="rounded-full border border-blue-400/30 bg-blue-400/5 px-4 py-2 text-sm font-semibold text-blue-300">{isArabic ? "التقييم: 90٪" : "Score: 90%"}</span>
+            </div>
+          </article>
         </div>
-
-      </div>
-    </section>
-</Reveal>
+      </section>
+    </Reveal>
   );
 }
+
