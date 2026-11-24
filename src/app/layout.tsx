@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const fullName = "Zyad Abdulftah El Adl";
+const fullName = "Zyad Abdulftah Ibrahim El Adl";
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: `${fullName} | Network Engineering Student`,
   description:
-    "Portfolio of Zyad Abdulftah El Adl, fourth-year Electronics and Communications Engineering student at Mansoura University, focused on enterprise networking, infrastructure, and network security.",
+    "Portfolio of Zyad Abdulftah Ibrahim El Adl, fourth-year Electronics and Communications Engineering student at Mansoura University, focused on enterprise networking, infrastructure, and network security.",
   keywords: [
     "Network Engineering Student",
     "Cisco",

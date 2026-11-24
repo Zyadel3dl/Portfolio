@@ -5,7 +5,7 @@ import { ArrowDown, ArrowUpRight, Download, Mail, ChevronDown, FileText } from "
 import { useState } from "react";
 import { useLanguage } from "./LanguageProvider";
 
-const fullName = "Zyad Abdulftah El Adl";
+const fullName = "Zyad Abdulftah Ibrahim El Adl";
 const highlights = [
   { label: "Currently studying", value: "Electronics & Communications" },
   { label: "Building with", value: "Cisco · GNS3 · Packet Tracer" },
