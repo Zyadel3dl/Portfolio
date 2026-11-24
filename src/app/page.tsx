@@ -10,32 +10,31 @@ import Certificates from "./components/Certificates";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import LanguageProvider from "./components/LanguageProvider";
 
 export default function Home() {
   return (
-    <LanguageProvider>
-  <Background />
+    <>
+      <Background />
 
-  <Navbar />
+      <Navbar />
 
-  <Hero />
+      <Hero />
 
-  <About />
+      <About />
 
-  <Skills />
+      <Skills />
 
-  <Experience />
+      <Experience />
 
-  <Education />
+      <Education />
 
-  <Certificates />
+      <Certificates />
 
-  <Projects />
+      <Projects />
 
-  <Contact />
+      <Contact />
 
-  <Footer />
-    </LanguageProvider>
+      <Footer />
+    </>
   );
 }

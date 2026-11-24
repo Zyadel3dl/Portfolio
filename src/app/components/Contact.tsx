@@ -2,11 +2,8 @@
 import Reveal from "./Reveal";
 import { Mail, Phone } from "lucide-react";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
-import { useLanguage } from "./LanguageProvider";
 
 export default function Contact() {
-  const { language } = useLanguage();
-  const isArabic = language === "ar";
   return (
 <Reveal>
     <section
@@ -16,11 +13,11 @@ export default function Contact() {
       <div className="max-w-6xl mx-auto">
 
         <h2 className="text-4xl font-bold text-center text-cyan-400 mb-4">
-          {isArabic ? "تواصل معي" : "Get In Touch"}
+          Get In Touch
         </h2>
 
         <p className="text-center text-slate-400 mb-14">
-          {isArabic ? "يسعدني التواصل بشأن فرص التدريب والعمل في مجال الشبكات والتعاون والمشاريع." : "Feel free to contact me for internships, networking opportunities, collaborations, or freelance projects."}
+          Feel free to contact me for internships, networking opportunities, collaborations, or freelance projects.
         </p>
 
         <div className="grid md:grid-cols-2 gap-6">
@@ -34,7 +31,7 @@ export default function Contact() {
 
             <div>
               <h3 className="font-bold text-white">
-                {isArabic ? "البريد الإلكتروني" : "Email"}
+                Email
               </h3>
 
               <p className="text-slate-400">
@@ -52,7 +49,7 @@ export default function Contact() {
 
             <div>
               <h3 className="font-bold text-white">
-                {isArabic ? "الهاتف" : "Phone"}
+                Phone
               </h3>
 
               <p className="text-slate-400">
@@ -72,7 +69,7 @@ export default function Contact() {
 
             <div>
               <h3 className="font-bold text-white">
-                {isArabic ? "لينكدإن" : "LinkedIn"}
+                LinkedIn
               </h3>
 
               <p className="text-slate-400">
@@ -92,7 +89,7 @@ export default function Contact() {
 
   <div>
     <h3 className="font-bold text-white">
-      {isArabic ? "جيت هب" : "GitHub"}
+      GitHub
     </h3>
 
     <p className="text-slate-400">

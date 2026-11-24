@@ -1,6 +1,5 @@
 import { ArrowUpRight, Award, BookOpenCheck, ShieldCheck } from "lucide-react";
 import Reveal from "./Reveal";
-import { useLanguage } from "./LanguageProvider";
 
 type TrainingItem = { title: string; provider: string; detail: string; href?: string; status?: string; wide?: boolean; icon: typeof Award | typeof BookOpenCheck | typeof ShieldCheck };
 
@@ -44,15 +43,13 @@ const training: TrainingItem[] = [
 ];
 
 export default function Certificates() {
-  const { language } = useLanguage();
-  const isArabic = language === "ar";
   return (
     <Reveal>
       <section id="certificates" className="bg-slate-900 px-6 py-24">
         <div className="mx-auto max-w-6xl">
-          <p className="mb-3 text-center font-mono text-xs uppercase tracking-[.2em] text-cyan-400">{isArabic ? "التعلم والتطوير" : "Learning & development"}</p>
-          <h2 className="mb-4 text-center text-4xl font-bold text-white md:text-5xl">{isArabic ? "الدورات والشهادات" : "Training & certificates"}</h2>
-          <p className="mb-14 text-center text-slate-400">{isArabic ? "الدورات المكتملة والتعلم المهني الحالي." : "Completed courses and current professional learning."}</p>
+          <p className="mb-3 text-center font-mono text-xs uppercase tracking-[.2em] text-cyan-400">Learning & development</p>
+          <h2 className="mb-4 text-center text-4xl font-bold text-white md:text-5xl">Training & certificates</h2>
+          <p className="mb-14 text-center text-slate-400">Completed courses and current professional learning.</p>
 
           <div className="grid gap-4 md:grid-cols-2">
             {training.map((item) => {
@@ -61,16 +58,16 @@ export default function Certificates() {
                 <>
                   <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-blue-400/20 bg-blue-400/5 text-blue-300"><Icon size={20} /></span>
                   <span className="min-w-0 flex-1">
-                    <span className="block font-semibold text-white">{isArabic ? ({ "Network & System Security (MCSA)": "أمن الشبكات والأنظمة (MCSA)", "Cisco Certified Network Associate (CCNA) Course": "دورة أخصائي شبكات سيسكو (CCNA)", "Mobile Communication Networks": "شبكات الاتصالات المحمولة", "React Web Developer Track": "مسار مطور ويب React", "Business English Track": "مسار اللغة الإنجليزية للأعمال" } as Record<string, string>)[item.title] : item.title}</span>
-                    <span className="mt-1 block text-sm text-cyan-400">{isArabic ? item.provider.replace("In progress", "قيد الدراسة").replace("Issued", "صدرت").replace("Apr", "أبريل").replace("Jul-Sep", "يوليو - سبتمبر").replace("Oct", "أكتوبر").replace("Apr-Oct", "أبريل - أكتوبر").replace("Digital Egypt Pioneers Program", "مبادرة رواد مصر الرقمية").replace("OneLab Training", "تدريب OneLab").replace("National Telecommunication Institute (NTI)", "المعهد القومي للاتصالات").replace("Berlitz Egypt", "بيرلتز مصر") : item.provider}</span>
-                    <span className="mt-2 block text-sm text-slate-400">{isArabic ? item.detail.replace("Training in progress", "التدريب مستمر").replace("hours", "ساعة").replace("Score:", "التقييم:").replace("Course completed", "اكتملت الدورة").replace("Completed", "مكتمل") : item.detail}</span>
+                    <span className="block font-semibold text-white">{item.title}</span>
+                    <span className="mt-1 block text-sm text-cyan-400">{item.provider}</span>
+                    <span className="mt-2 block text-sm text-slate-400">{item.detail}</span>
                   </span>
                   {item.href ? (
                     <span className="flex shrink-0 items-center gap-1 text-xs font-medium text-blue-300">
-                      {isArabic ? "عرض" : "View"} <ArrowUpRight size={15} />
+                      View <ArrowUpRight size={15} />
                     </span>
                   ) : (
-                    <span className="shrink-0 rounded-full border border-blue-400/25 px-2.5 py-1 text-xs text-blue-300">{isArabic ? "قيد التنفيذ" : item.status}</span>
+                    <span className="shrink-0 rounded-full border border-blue-400/25 px-2.5 py-1 text-xs text-blue-300">{item.status}</span>
                   )}
                 </>
               );
